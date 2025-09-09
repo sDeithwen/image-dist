@@ -9,19 +9,11 @@ RUN apt-get update && apt-get install -y \
         python3-dev \
         libpcre3-dev \
         libpcre3 \
-    && pip install --upgrade pip \
-    && pip install Flask==0.10.1 \
-                   Jinja2<3.0 \
-                   Werkzeug<2.0 \
-                   itsdangerous<2.0 \
-                   MarkupSafe<2.0 \
-                   uWSGI==2.0.19.1 \
-                   requests==2.5.1 \
-                   redis==2.10.3 \
-    && apt-get remove -y build-essential python3-dev libpcre3-dev \
-    && apt-get autoremove -y \
-    && rm -rf /var/lib/apt/lists/*
-
+        && pip install --upgrade pip \
+        && pip install Flask==0.10.1 uWSGI==2.0.19.1 requests==2.5.1 redis==2.10.3 \
+        && apt-get remove -y build-essential python3-dev libpcre3-dev \
+        && apt-get autoremove -y \
+        && rm -rf /var/lib/apt/lists/*
 
 
 WORKDIR /app
